@@ -5,7 +5,6 @@
 using namespace std;
 
 int main() {
-    PrintIntoTheFile("./input.txt");
-    WriteFileIntoTheFile("./input.txt", "./output.txt");
+    PrintTableIntoFileCSV("input.txt");
     return 0;
 }
