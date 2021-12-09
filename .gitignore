@@ -1,4 +1,4 @@
 tags
 build/
 *.txt
-.vscode
+.vscode/
