@@ -6,6 +6,7 @@
 struct Duration {
     int hour;
     int minute;
+    Duration(int=0,int=0);
 };
 
 std::istream& operator>> (std::istream& stream, Duration& duration);

@@ -2,6 +2,11 @@
 #include <iomanip>
 #include <ostream>
 
+Duration::Duration (int hour, int minute) {
+    this->hour = hour;
+    this->minute = minute;
+}
+
 std::istream& operator>> (std::istream& stream, Duration& duration) {
     stream >> duration.hour;
     stream.ignore(1);
