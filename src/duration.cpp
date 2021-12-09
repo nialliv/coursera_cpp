@@ -2,19 +2,11 @@
 #include <iomanip>
 #include <ostream>
 
-Duration ReadDuration (std::istream& stream) {
-    int h = 0;
-    int m = 0;
-    stream >> h;
+std::istream& operator>> (std::istream& stream, Duration& duration) {
+    stream >> duration.hour;
     stream.ignore(1);
-    stream >> m;
-    return Duration {h,m};
-}
-
-void PrintDuration(std::ostream &stream, Duration& duration) {
-    stream << std::setfill('0');
-    stream << std::setw(2) << duration.hour << ':'
-           << std::setw(2) << duration.minute;
+    stream >> duration.minute;
+    return stream;
 }
 
 std::ostream& operator<< (std::ostream& stream, const Duration& duration) {

@@ -8,6 +8,5 @@ struct Duration {
     int minute;
 };
 
-Duration ReadDuration (std::istream& stream);
-void PrintDuration (std::ostream& stream, Duration& duration);
+std::istream& operator>> (std::istream& stream, Duration& duration);
 std::ostream& operator<<(std::ostream& stream, const Duration& duration);
