@@ -3,12 +3,32 @@
 #include <ostream>
 
 Duration::Duration (int hour, int minute) {
-    this->hour = hour;
-    this->minute = minute;
+    int total = hour * 60 + minute;
+    this->hour = total / 60;
+    this->minute = total % 60;
 }
 
 Duration Duration::operator+(const Duration &destination) const {
     return Duration {this->hour + destination.hour, this->minute + destination.minute};
+}
+
+bool Duration::operator>(const Duration &destination) const {
+    if(this->hour > destination.hour) {
+        return true;
+    } else if (this->hour < destination.hour) {
+        return false;
+    } else {
+        if(this->minute > destination.minute) {
+            return true;
+        } else if(this->minute < destination.minute) {
+            return false;
+        }
+    }
+    return false;
+}
+
+bool Duration::operator<(const Duration &destination) const {
+   return !(Duration::operator>(destination));
 }
 
 std::istream& operator>> (std::istream& stream, Duration& duration) {

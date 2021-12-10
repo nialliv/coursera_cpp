@@ -9,6 +9,8 @@ struct Duration {
     int minute;
     Duration(int=0,int=0);
     Duration operator+ (const Duration& destination) const;
+    bool operator< (const Duration& destination) const;
+    bool operator> (const Duration& destination) const;
 };
 
 std::istream& operator>> (std::istream& stream, Duration& duration);
