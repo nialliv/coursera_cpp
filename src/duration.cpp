@@ -7,6 +7,10 @@ Duration::Duration (int hour, int minute) {
     this->minute = minute;
 }
 
+Duration Duration::operator+(const Duration &destination) const {
+    return Duration {this->hour + destination.hour, this->minute + destination.minute};
+}
+
 std::istream& operator>> (std::istream& stream, Duration& duration) {
     stream >> duration.hour;
     stream.ignore(1);
