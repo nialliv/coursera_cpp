@@ -13,18 +13,9 @@ Duration Duration::operator+(const Duration &destination) const {
 }
 
 bool Duration::operator>(const Duration &destination) const {
-    if(this->hour > destination.hour) {
-        return true;
-    } else if (this->hour < destination.hour) {
-        return false;
-    } else {
-        if(this->minute > destination.minute) {
-            return true;
-        } else if(this->minute < destination.minute) {
-            return false;
-        }
-    }
-    return false;
+    if(this->hour == destination.hour)
+        return this->minute > destination.minute;
+    return this->hour > destination.hour;
 }
 
 bool Duration::operator<(const Duration &destination) const {
